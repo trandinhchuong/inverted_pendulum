@@ -1,0 +1,8 @@
+timer.c:253:9:timer_remove_msg	24	static
+timer.c:78:6:task_timer_tick	16	static
+timer.c:153:6:timer_init	0	static
+timer.c:162:6:timer_tick	16	static
+timer.c:188:9:timer_set	32	static
+timer.c:295:9:timer_remove_attr	16	static
+timer.c:305:10:timer_used	0	static
+timer.c:315:13:timer_get_list	0	static

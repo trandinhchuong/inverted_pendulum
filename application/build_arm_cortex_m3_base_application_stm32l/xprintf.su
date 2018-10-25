@@ -1,0 +1,7 @@
+xprintf.c:26:6:xputc	16	static
+xprintf.c:36:6:sxputc	0	static
+xprintf.c:41:5:xstream	48	static
+xprintf.c:143:6:xprintf	24	static
+xprintf.c:153:5:xsprintf	20	static
+xprintf.c:167:5:set_dymc_output_type	0	static
+xprintf.c:181:6:xdymcprintf	32	static

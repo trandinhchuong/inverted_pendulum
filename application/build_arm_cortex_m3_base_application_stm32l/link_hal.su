@@ -1,0 +1,4 @@
+link_hal.cpp:12:9:uint8_t link_hal_write_byte(uint8_t)	0	static
+link_hal.cpp:17:9:uint8_t link_hal_rev_byte(uint8_t)	0	static
+link_hal.cpp:22:6:void link_hal_reg_write_byte(pf_link_hal_write_byte)	8	static
+link_hal.cpp:31:6:void link_hal_reg_rev_byte(pf_link_hal_rev_byte)	8	static

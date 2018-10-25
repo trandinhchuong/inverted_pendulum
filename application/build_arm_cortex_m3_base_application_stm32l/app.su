@@ -1,0 +1,9 @@
+app.cpp:144:7:void app_task_pid()	0	static
+app.cpp:167:6:void sys_irq_timer_10ms()	8	static
+app.cpp:176:6:void sys_irq_timer_50us()	0	static
+app.cpp:182:6:void sys_irq_timer_hs1101()	0	static
+app.cpp:190:6:void sys_irq_ir_io_rev()	0	static
+app.cpp:193:6:void sys_irq_usb_recv(uint8_t*, uint32_t)	0	static
+app.cpp:200:6:void app_power_on_reset()	0	static
+app.cpp:204:7:void* app_get_boot_share_data()	0	static
+app.cpp:63:5:int main_app()	8	static
