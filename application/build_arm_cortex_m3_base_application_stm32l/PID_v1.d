@@ -80,4 +80,5 @@ build_arm_cortex_m3_base_application_stm32l/PID_v1.o: \
  sources/platform/stm32l/usb/inc/usb_pwr.h \
  sources/platform/stm32l/usb/inc/usb_istr.h \
  sources/platform/stm32l/usb/inc/usb_conf.h sources/ak/message.h \
- sources/platform/stm32l/sys_cfg.h sources/driver/PID/PID_v1.h
+ sources/platform/stm32l/sys_cfg.h sources/driver/PID/PID_v1.h \
+ sources/app/task_encoder.h sources/driver/led/led.h

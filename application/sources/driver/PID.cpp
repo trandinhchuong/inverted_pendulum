@@ -21,6 +21,4 @@ void PID::compute(float Setpoint, float Input, float* Output)
 
 
     lastErr = error;
-
-
 }

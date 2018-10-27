@@ -1,15 +1,15 @@
-PID_v1.cpp:58:6:bool PID::laymau()	72	static
-PID_v1.cpp:102:6:void PID::SetTunings(double, double, double, int)	32	static
-PID_v1.cpp:127:6:void PID::SetTunings(double, double, double)	40	static
-PID_v1.cpp:134:6:void PID::SetSampleTime(int)	24	static
-PID_v1.cpp:154:6:void PID::SetOutputLimits(double, double)	40	static
-PID_v1.cpp:189:6:void PID::Initialize()	24	static
-PID_v1.cpp:175:6:void PID::SetMode(int)	16	static
-PID_v1.cpp:203:6:void PID::SetControllerDirection(int)	16	static
-PID_v1.cpp:20:1:PID::PID(double*, double*, double*, double, double, double, int, int)	32	static
-PID_v1.cpp:44:1:PID::PID(double*, double*, double*, double, double, double, int)	56	static
-PID_v1.cpp:219:8:double PID::GetKp()	0	static
-PID_v1.cpp:220:8:double PID::GetKi()	0	static
-PID_v1.cpp:221:8:double PID::GetKd()	0	static
-PID_v1.cpp:222:5:int PID::GetMode()	0	static
-PID_v1.cpp:223:5:int PID::GetDirection()	0	static
+PID_v1.cpp:61:6:bool PID::Compute()	72	static
+PID_v1.cpp:105:6:void PID::SetTunings(double, double, double, int)	32	static
+PID_v1.cpp:130:6:void PID::SetTunings(double, double, double)	40	static
+PID_v1.cpp:137:6:void PID::SetSampleTime(int)	24	static
+PID_v1.cpp:157:6:void PID::SetOutputLimits(double, double)	40	static
+PID_v1.cpp:192:6:void PID::Initialize()	24	static
+PID_v1.cpp:178:6:void PID::SetMode(int)	16	static
+PID_v1.cpp:206:6:void PID::SetControllerDirection(int)	16	static
+PID_v1.cpp:21:1:PID::PID(double*, double*, double*, double, double, double, int, int)	32	static
+PID_v1.cpp:47:1:PID::PID(double*, double*, double*, double, double, double, int)	56	static
+PID_v1.cpp:222:8:double PID::GetKp()	0	static
+PID_v1.cpp:223:8:double PID::GetKi()	0	static
+PID_v1.cpp:224:8:double PID::GetKd()	0	static
+PID_v1.cpp:225:5:int PID::GetMode()	0	static
+PID_v1.cpp:226:5:int PID::GetDirection()	0	static

@@ -105,105 +105,105 @@ void led_life_off() {
 *******************************************************************************/
 void nrf24l01_io_ctrl_init() {
 	/* CE / CSN / IRQ */
-	GPIO_InitTypeDef        GPIO_InitStructure;
-	EXTI_InitTypeDef        EXTI_InitStruct;
-	NVIC_InitTypeDef        NVIC_InitStruct;
+//	GPIO_InitTypeDef        GPIO_InitStructure;
+//	EXTI_InitTypeDef        EXTI_InitStruct;
+//	NVIC_InitTypeDef        NVIC_InitStruct;
 
-	/* GPIOA Periph clock enable */
-	RCC_AHBPeriphClockCmd(NRF_CE_IO_CLOCK, ENABLE);
-	RCC_AHBPeriphClockCmd(NRF_CSN_IO_CLOCK, ENABLE);
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+//	/* GPIOA Periph clock enable */
+//	RCC_AHBPeriphClockCmd(NRF_CE_IO_CLOCK, ENABLE);
+//	RCC_AHBPeriphClockCmd(NRF_CSN_IO_CLOCK, ENABLE);
+//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
-	/*CE -> PA8*/
-	GPIO_InitStructure.GPIO_Pin = NRF_CE_IO_PIN;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	GPIO_Init(NRF_CE_IO_PORT, &GPIO_InitStructure);
+//	/*CE -> PA8*/
+//	GPIO_InitStructure.GPIO_Pin = NRF_CE_IO_PIN;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+//	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+//	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+//	GPIO_Init(NRF_CE_IO_PORT, &GPIO_InitStructure);
 
-	/*CNS -> PB9*/
-	GPIO_InitStructure.GPIO_Pin = NRF_CSN_IO_PIN;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+//	/*CNS -> PB9*/
+//	GPIO_InitStructure.GPIO_Pin = NRF_CSN_IO_PIN;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+//	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+//	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 
-	GPIO_Init(NRF_CSN_IO_PORT, &GPIO_InitStructure);
+//	GPIO_Init(NRF_CSN_IO_PORT, &GPIO_InitStructure);
 
-	/* IRQ -> PB1 */
-	GPIO_InitStructure.GPIO_Pin = NRF_IRQ_IO_PIN;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_Init(NRF_IRQ_IO_PORT, &GPIO_InitStructure);
+//	/* IRQ -> PB1 */
+//	GPIO_InitStructure.GPIO_Pin = NRF_IRQ_IO_PIN;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+//	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+//	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+//	GPIO_Init(NRF_IRQ_IO_PORT, &GPIO_InitStructure);
 
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource1);
+//	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOB, EXTI_PinSource1);
 
-	EXTI_InitStruct.EXTI_Line = EXTI_Line1;
-	EXTI_InitStruct.EXTI_LineCmd = ENABLE;
-	EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;
-	EXTI_InitStruct.EXTI_Trigger = EXTI_Trigger_Falling;
-	EXTI_Init(&EXTI_InitStruct);
+//	EXTI_InitStruct.EXTI_Line = EXTI_Line1;
+//	EXTI_InitStruct.EXTI_LineCmd = ENABLE;
+//	EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;
+//	EXTI_InitStruct.EXTI_Trigger = EXTI_Trigger_Falling;
+//	EXTI_Init(&EXTI_InitStruct);
 
-	NVIC_InitStruct.NVIC_IRQChannel = EXTI1_IRQn;
-	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 3;
-	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStruct);
+//	NVIC_InitStruct.NVIC_IRQChannel = EXTI1_IRQn;
+//	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 3;
+//	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0;
+//	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+//	NVIC_Init(&NVIC_InitStruct);
 }
 
 void nrf24l01_spi_ctrl_init() {
-	GPIO_InitTypeDef  GPIO_InitStructure;
-	SPI_InitTypeDef   SPI_InitStructure;
+//	GPIO_InitTypeDef  GPIO_InitStructure;
+//	SPI_InitTypeDef   SPI_InitStructure;
 
-	/*!< SPI GPIO Periph clock enable */
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+//	/*!< SPI GPIO Periph clock enable */
+//	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
 
-	/*!< SPI Periph clock enable */
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
+//	/*!< SPI Periph clock enable */
+//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
 
-	/*!< Configure SPI pins: SCK */
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+//	/*!< Configure SPI pins: SCK */
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+//	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+//	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+//	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+//	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
+//	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-	/*!< Configure SPI pins: MISO */
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+//	/*!< Configure SPI pins: MISO */
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+//	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-	/*!< Configure SPI pins: MOSI */
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+//	/*!< Configure SPI pins: MOSI */
+//	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
+//	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-	/* Connect PXx to SPI_SCK */
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_SPI1);
+//	/* Connect PXx to SPI_SCK */
+//	GPIO_PinAFConfig(GPIOA, GPIO_PinSource5, GPIO_AF_SPI1);
 
-	/* Connect PXx to SPI_MISO */
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_SPI1);
+//	/* Connect PXx to SPI_MISO */
+//	GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_SPI1);
 
-	/* Connect PXx to SPI_MOSI */
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_SPI1);
+//	/* Connect PXx to SPI_MOSI */
+//	GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_SPI1);
 
-	/*!< SPI Config */
-	SPI_DeInit(SPI1);
-	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
-	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
-	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
-	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
-	SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
-	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
-	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
+//	/*!< SPI Config */
+//	SPI_DeInit(SPI1);
+//	SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+//	SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+//	SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+//	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
+//	SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
+//	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
+//	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
 
-	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
-	SPI_InitStructure.SPI_CRCPolynomial = 7;
-	SPI_Init(SPI1, &SPI_InitStructure);
+//	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+//	SPI_InitStructure.SPI_CRCPolynomial = 7;
+//	SPI_Init(SPI1, &SPI_InitStructure);
 
-	SPI_Cmd(SPI1, ENABLE); /*!< SPI enable */
+//	SPI_Cmd(SPI1, ENABLE); /*!< SPI enable */
 }
 
 void nrf24l01_ce_low() {
@@ -231,6 +231,7 @@ uint8_t nrf24l01_spi_rw(uint8_t data) {
 	while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET) {
 		if (counter-- == 0) {
 			FATAL("spi", 0x01);
+
 		}
 	}
 
@@ -303,13 +304,21 @@ uint8_t flash_transfer(uint8_t data) {
 /******************************************************************************
 * ir IO function
 *******************************************************************************/
+
+
 void timer_50us_init() {
 	TIM_TimeBaseInitTypeDef  timer_50us;
 	NVIC_InitTypeDef NVIC_InitStructure;
 
-	/* timer 50us to polling receive IR signal */
+	/* timer 50us to polling receive IR signal
+32000/320 = 100  || 1:100=0.01ms =10us
+timer_50us.TIM_Period = 1592;
+*/
+
+
+
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
-	timer_50us.TIM_Period = 1592;
+	timer_50us.TIM_Period = 320;
 	timer_50us.TIM_Prescaler = 0;
 	timer_50us.TIM_ClockDivision = 0;
 	timer_50us.TIM_CounterMode = TIM_CounterMode_Down;
@@ -898,7 +907,7 @@ void adc_thermistor_io_cfg() {
 
 uint16_t adc_ct_io_read(uint8_t chanel) {
 	ADC_RegularChannelConfig(ADC1, chanel, 1, ADC_SampleTime_4Cycles);
-	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_ADONS) == RESET);
+//	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_ADONS) == InventingRESET);
 
 	ADC_SoftwareStartConv(ADC1);
 	while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
@@ -998,115 +1007,73 @@ void Dir_int() {
     GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
-//________EXT 10US________
+void PWM_int()
+{
+		GPIO_InitTypeDef GPIO_InitStructure;
 
-void timer9_int() {
-	TIM_TimeBaseInitTypeDef  timer9;
-	NVIC_InitTypeDef NVIC_InitStructure;
+		RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM11, ENABLE);
 
+		/* GPIOB clock enable */
+		RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOB, ENABLE);
 
+		/* ---------------------------GPIO Configuration -----------------------------*/
+		GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
+		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+		GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
+		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+		GPIO_Init(GPIOB, &GPIO_InitStructure);
+		/* Remap PB9 pin to TIM11 */
+		GPIO_PinAFConfig(GPIOB, GPIO_PinSource9, GPIO_AF_TIM11);
 
-	/* ---------------------------------------------------------------------------
-	  TIM9 Configuration: generate a PWM signal:
-	  The TIM11CLK frequency is set to SystemCoreClock (Hz).
-	  SystemCoreClock is set to 32 MHz for Ultra Low Power Medium-Density Devices.
-	  TIM11 prescaler is set to 0
-	  The TIM11 is running at 32 MHz Frequency = TIM9 counter clock/(ARR + 1)
-													  = 32 MHz / 320000/8 = 0.1 KHz=100hz=>10us
-	  TIM11 Channel1 duty cycle = (TIM11_CCR1/ (TIM11_ARR+1))* 100 = 333 / (665+1) = 50 %
-	---------------------------------------------------------------------------- */
-	/* timer 50us to polling receive IR signal */
-	RCC_APB1PeriphClockCmd(RCC_APB2Periph_TIM9, ENABLE);
-	timer9.TIM_Period = 1250;
-	timer9.TIM_Prescaler = 0;
-	timer9.TIM_ClockDivision = 0;
-	timer9.TIM_CounterMode = TIM_CounterMode_Down;
-	TIM_TimeBaseInit(TIM9, &timer9);
+		/* ---------------------------------------------------------------------------
+		  TIM11 Configuration: generate a PWM signal:
+		  The TIM11CLK frequency is set to SystemCoreClock (Hz).
+		  SystemCoreClock is set to 32 MHz for Ultra Low Power Medium-Density Devices.
+		  TIM11 prescaler is set to 0
+		  The TIM11 is running at 32 MHz: TIM11 Frequency = TIM11 counter clock/(ARR + 1)
+														  = 32 MHz / 1024 = 31,280 KHz
+		  TIM11 Channel1 duty cycle = (TIM11_CCR1/ (TIM11_ARR+1))* 100 = 333 / (665+1) = 50 %
+		  PrescalerValue = (uint16_t) (SystemCoreClock / 10) - 1=3.1khz;
 
-	NVIC_InitStructure.NVIC_IRQChannel = TIM9_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init(&NVIC_InitStructure);
+		  http://hethongnhung.com/huong-dan-lap-trinh-timer-voi-stm32/
+		---------------------------------------------------------------------------- */
+		TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+		/* Time base configuration */
+		TIM_TimeBaseStructure.TIM_Period = 1024;
+		TIM_TimeBaseStructure.TIM_Prescaler = 10;
+		TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+		TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
-	TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
-	//ENTRY_CRITICAL();
-	TIM_Cmd(TIM9, ENABLE);
+		TIM_TimeBaseInit(TIM11, &TIM_TimeBaseStructure);
 
 
 }
 
 //--------Setup_PWM-------
-void TIM11_PWM( uint16_t CCR1Val )
+void TIM11_PWM( __IO int16_t CCR1Val )
 {
-    TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
-    GPIO_InitTypeDef GPIO_InitStructure;
-    TIM_OCInitTypeDef  TIM_OCInitStructure;
+//	LOGIN_PRINT("CCR1Val: %d\n",(int)CCR1Val);
+	 /*---------------------- System Clocks Configuration ------------------------*/
+	 TIM_OCInitTypeDef  TIM_OCInitStructure;
+	 /* PWM1 Mode configuration: Channel1 */
+	 TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+	 TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+	 TIM_OCInitStructure.TIM_Pulse =CCR1Val;
+	// TIM11->CCR1=CCR1Val;
+	 TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
 
-	/*   1---------255
-     *   1         32000
-     *
-     */
-if(CCR1Val==255)CCR1Val=254;
-	CCR1Val=(CCR1Val*32000)/255;
+	 TIM_OC1Init(TIM11, &TIM_OCInitStructure);
 
-    uint16_t PrescalerValue = 0;
-   // LOGIN_PRINT("CCr1val : %d\n",(uint16_t)CCR1Val);
-     /*---------------------- System Clocks Configuration ------------------------*/
-     /* TIM11 clock enable */
-     RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM11, ENABLE);
+	 TIM_OC1PreloadConfig(TIM11, TIM_OCPreload_Enable);
 
-     /* GPIOB clock enable */
-     RCC_AHBPeriphClockCmd( RCC_AHBPeriph_GPIOB, ENABLE);
+	 TIM_ARRPreloadConfig(TIM11, ENABLE);
 
-     /* ---------------------------GPIO Configuration -----------------------------*/
-     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
-     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-     GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
-     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
-     GPIO_Init(GPIOB, &GPIO_InitStructure);
-     /* Remap PB9 pin to TIM11 */
-     GPIO_PinAFConfig(GPIOB, GPIO_PinSource9, GPIO_AF_TIM11);
-
-     /* ---------------------------------------------------------------------------
-       TIM11 Configuration: generate a PWM signal:
-       The TIM11CLK frequency is set to SystemCoreClock (Hz).
-       SystemCoreClock is set to 32 MHz for Ultra Low Power Medium-Density Devices.
-       TIM11 prescaler is set to 0
-       The TIM11 is running at 32 MHz: TIM11 Frequency = TIM11 counter clock/(ARR + 1)
-                                                       = 32 MHz / 666 = 48 KHz
-       TIM11 Channel1 duty cycle = (TIM11_CCR1/ (TIM11_ARR+1))* 100 = 333 / (665+1) = 50 %
-     ---------------------------------------------------------------------------- */
-
-     /* Time base configuration */
-	 TIM_TimeBaseStructure.TIM_Period = 32000;
-     TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
-     TIM_TimeBaseStructure.TIM_ClockDivision = 0;
-     TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-
-     TIM_TimeBaseInit(TIM11, &TIM_TimeBaseStructure);
-
-     /* PWM1 Mode configuration: Channel1 */
-     TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
-     TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-     TIM_OCInitStructure.TIM_Pulse =CCR1Val;
-  //   TIM11->CCR1=1110;
-     TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;
-
-     TIM_OC1Init(TIM11, &TIM_OCInitStructure);
-
-     TIM_OC1PreloadConfig(TIM11, TIM_OCPreload_Enable);
-
-     TIM_ARRPreloadConfig(TIM11, ENABLE);
-
-     /* TIM11 enable counter */
-     TIM_Cmd(TIM11, ENABLE);
-
-
+	 /* TIM11 enable counter */
+	 TIM_Cmd(TIM11, ENABLE);
 }
-//--------Setup_der-------
-void TIM3_Encoder_Config()
+//--------Setup_encoder-------
+void TIM3_Encoder_Config(void)
 {   GPIO_InitTypeDef        GPIO_InitStructure;
     NVIC_InitTypeDef        NVIC_InitStructure;
     TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
@@ -1148,15 +1115,15 @@ void TIM3_Encoder_Config()
     TIM_ITConfig(TIM3,TIM_IT_Update,ENABLE);
 }
 
-void TIM2_Encoder_Config()
+void TIM2_Encoder_Config(void)
 {   GPIO_InitTypeDef        GPIO_InitStructure;
     NVIC_InitTypeDef        NVIC_InitStructure;
     TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+    RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_0; // noi d kh A-B coder PA1-TIM2_CH2 PA0-TIM2_CH1
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_0; // noi den kenh A-B encoder PA1-TIM2_CH2 PA0-TIM2_CH1
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -1173,7 +1140,7 @@ void TIM2_Encoder_Config()
     TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
     TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
-	TIM_ARRPreloadConfig(TIM2, ENABLE);
+    TIM_ARRPreloadConfig(TIM2, ENABLE);
 
 
     TIM_EncoderInterfaceConfig(TIM2, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);

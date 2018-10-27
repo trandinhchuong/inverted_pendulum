@@ -1,5 +1,5 @@
 #include "PID.h"
-/*
+
 PID::PID(float p, float i, float d)
 {
     kp = p;
@@ -16,28 +16,9 @@ void PID::compute(float Setpoint, float Input, float* Output)
     errSum += error;
     float dErr = (error - lastErr);
 
-	if (Kp<0 || Ki<0 || Kd<0) return;
 
-	pOn = POn;
-	pOnE = POn == P_ON_E;
+    *Output = kp * error + ki * errSum + kd * dErr;
 
-	dispKp = Kp; dispKi = Ki; dispKd = Kd;
-
-	double SampleTimeInSec = ((double)SampleTime)/1000;
-	kp = Kp;
-	ki = Ki * SampleTimeInSec;
-	kd = Kd / SampleTimeInSec;
-
-   if(controllerDirection ==REVERSE)
-	{
-	   kp = (0 - kp);
-	   ki = (0 - ki);
-	   kd = (0 - kd);
-	}
- }
 
     lastErr = error;
 }
-	  *Output = kp * error + ki * errSum + kd * dErr;
-
-*/

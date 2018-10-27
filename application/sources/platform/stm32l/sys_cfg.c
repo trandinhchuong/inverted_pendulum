@@ -26,8 +26,6 @@
 #include "sys_dbg.h"
 #include "ak.h"
 
-
-
 /* Private define */
 static uint32_t delay_coeficient = 0;
 static void xputchar(uint8_t c);
@@ -94,7 +92,7 @@ void sys_cfg_console() {
 	GPIO_Init(USARTx_RX_GPIO_PORT, &GPIO_InitStructure);
 
 	/* USARTx configuration */
-	USART_InitStructure.USART_BaudRate = 115200;//SYS_CONSOLE_BAUDRATE;
+	USART_InitStructure.USART_BaudRate = SYS_CONSOLE_BAUDRATE;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
 	USART_InitStructure.USART_Parity = USART_Parity_No;
@@ -193,6 +191,7 @@ void sys_cfg_update_info() {
 #endif
 }
 
+
 /******************************************************************************
 * system utilities function
 *******************************************************************************/
@@ -231,6 +230,40 @@ uint8_t sys_ctrl_shell_get_char() {
 
 void sys_ctrl_reset() {
 	NVIC_SystemReset();
+}
+
+void timer9_int() {
+
+	ENTRY_CRITICAL();
+	TIM_TimeBaseInitTypeDef  timer9;
+	NVIC_InitTypeDef NVIC_InitStructure;
+
+	/* ---------------------------------------------------------------------------
+	  TIM9 Configuration: generate a PWM signal:
+	  The TIM11CLK frequency is set to SystemCoreClock (Hz).
+	  SystemCoreClock is set to 32 MHz for Ultra Low Power Medium-Density Devices.
+	  TIM11 prescaler is set to 0
+	  The TIM11 is running at 32 MHz Frequency = TIM9 counter clock/(ARR + 1)
+													  = 32 MHz / 320000/8 = 0.1 KHz=100hz=>10us
+	  TIM11 Channel1 duty cycle = (TIM11_CCR1/ (TIM11_ARR+1))* 100 = 333 / (665+1) = 50 %
+	---------------------------------------------------------------------------- */
+	/* timer 50us to polling receive IR signal */
+	RCC_APB1PeriphClockCmd(RCC_APB2Periph_TIM9, ENABLE);
+	timer9.TIM_Period = 1592;
+	timer9.TIM_Prescaler = 0;
+	timer9.TIM_ClockDivision = 0;
+	timer9.TIM_CounterMode = TIM_CounterMode_Down;
+	TIM_TimeBaseInit(TIM9, &timer9);
+
+	NVIC_InitStructure.NVIC_IRQChannel = TIM9_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+
+	TIM_ITConfig(TIM9, TIM_IT_Update, ENABLE);
+	ENTRY_CRITICAL();
+	TIM_Cmd(TIM9, DISABLE);
 }
 
 void sys_ctrl_delay_us(volatile uint32_t count) {

@@ -1,5 +1,3 @@
-
-/*
 class PID {
 public:
     PID(float p, float i, float d);
@@ -8,4 +6,3 @@ public:
 private:
     float kp, ki, kd;
 };
-*/

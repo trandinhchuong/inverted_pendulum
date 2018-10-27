@@ -16,7 +16,7 @@ extern void sys_irq_ir_io_rev();
 extern void sys_irq_timer_50us();
 extern void sys_irq_timer_10ms();
 extern void sys_irq_timer_hs1101();
-extern void app_task_pid();
+extern void sys_irq_pid();
 extern void sys_irq_usb_recv(uint8_t* data, uint32_t len);
 
 #ifdef __cplusplus

@@ -69,4 +69,4 @@ build_arm_cortex_m3_base_application_stm32l/system.o: \
  sources/app/app_if.h sources/app/app_eeprom.h sources/app/app_data.h \
  sources/platform/stm32l/system.h sources/sys/sys_irq.h \
  sources/sys/sys_svc.h sources/ak/timer.h sources/ak/timer.h \
- sources/app/app.h sources/app/task_encoder.h sources/driver/led/led.h
+ sources/app/app.h

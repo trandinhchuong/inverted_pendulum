@@ -98,4 +98,5 @@ build_arm_cortex_m3_base_application_stm32l/task_display.o: \
  sources/platform/stm32l/arduino/cores/stm32/pgmspace.h \
  /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/inttypes.h \
  sources/app/app.h sources/app/app_dbg.h sources/app/task_list.h \
- sources/app/task_display.h
+ sources/app/task_display.h sources/app/task_encoder.h \
+ sources/driver/led/led.h

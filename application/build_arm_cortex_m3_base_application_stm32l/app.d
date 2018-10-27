@@ -25,17 +25,12 @@ build_arm_cortex_m3_base_application_stm32l/app.o: sources/app/app.cpp \
  sources/common/log_queue.h sources/ak/message.h sources/ak/timer.h \
  sources/ak/timer.h sources/ak/fsm.h sources/driver/led/led.h \
  sources/driver/button/button.h sources/driver/flash/flash.h \
- sources/driver/hs1101/hs1101.h \
- /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/math.h \
- /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/stdio.h \
- /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdarg.h \
- /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/types.h \
- /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/types.h \
- /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/stdio.h \
  sources/app/app.h sources/networks/rf_protocols/rf24/nwk/nrf_nwk_sig.h \
  sources/app/app_if.h sources/app/app_eeprom.h sources/app/app_data.h \
  sources/sys/sys_boot.h sources/ak/port.h sources/app/app_dbg.h \
- sources/common/xprintf.h sources/app/app_bsp.h sources/app/app_flash.h \
+ sources/common/xprintf.h \
+ /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdarg.h \
+ sources/app/app_bsp.h sources/app/app_flash.h \
  sources/app/app_non_clear_ram.h sources/app/task_list.h \
  sources/ak/task.h sources/app/task_shell.h sources/common/cmd_line.h \
  sources/app/task_life.h sources/app/task_if.h \
@@ -98,12 +93,18 @@ build_arm_cortex_m3_base_application_stm32l/app.o: sources/app/app.cpp \
  sources/platform/stm32l/arduino/cores/stm32/pgmspace.h \
  /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/inttypes.h \
  sources/platform/stm32l/arduino/cores/Arduino.h \
+ /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/math.h \
  sources/platform/stm32l/sys_cfg.h sources/common/utils.h \
  sources/common/screen_manager.h sources/common/view_render.h \
  sources/common/view_item.h \
  sources/driver/Adafruit_ssd1306syp/Adafruit_ssd1306syp.h \
  sources/driver/Adafruit_ssd1306syp/Adafruit_GFX.h \
  sources/platform/stm32l/arduino/cores/Print.h \
+ /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/stdio.h \
+ /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/types.h \
+ /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/machine/types.h \
+ /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/stdio.h \
  sources/platform/stm32l/arduino/cores/Printable.h \
  sources/platform/stm32l/arduino/cores/Print.h \
- sources/platform/stm32l/arduino/cores/WString.h
+ sources/platform/stm32l/arduino/cores/WString.h \
+ sources/app/task_encoder.h

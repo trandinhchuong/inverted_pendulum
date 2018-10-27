@@ -1,5 +1,5 @@
 ##############################################################################
-# @author: do an tot nghiep con lac nguoc
+# @ do an tot nghiep con lac nguoc
 # @date:   
 ##############################################################################
 # Utilitis define
@@ -8,7 +8,7 @@ Print = @echo "~"
 # Name of build target ex: arm_cortex_m3_base_application.bin
 NAME_MODULE = arm_cortex_m3_base_application
 PROJECT = $(NAME_MODULE)
-st_flash = yes
+st_flash= yes
 
 #GCC_PATH	= /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3
 GCC_PATH	= /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3
@@ -218,3 +218,4 @@ com:
 clean:
 	$(Print) CLEAN $(OBJECTS_DIR) folder
 	@rm -rf $(OBJECTS_DIR)
+

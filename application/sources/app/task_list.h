@@ -24,7 +24,7 @@ enum {
 	AC_TASK_UART_IF_ID,
 	AC_TASK_DBG_ID,
 	AC_TASK_DISPLAY_ID,
-    AC_TASK_ENCODER,
+	AC_TASK_INVERTERPENDULUM,
 
 	/* NRF24 NETWORKS */
 	RF24_PHY_ID,
@@ -52,8 +52,8 @@ extern void task_rf24_if(ak_msg_t*);
 extern void task_uart_if(ak_msg_t*);
 extern void task_dbg(ak_msg_t*);
 extern void task_display(ak_msg_t*);
-extern void task_encoder(ak_msg_t* );
-
+extern void task_inverterPendulum(ak_msg_t* );
+extern void canbang();
 
 /* RF24 NETWORK TASK */
 extern void task_rf24_phy(ak_msg_t*);

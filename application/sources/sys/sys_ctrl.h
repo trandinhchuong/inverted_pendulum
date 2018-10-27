@@ -21,6 +21,8 @@ extern "C"
 
 /* reset system (soft reset) */
 extern void sys_ctrl_reset();
+extern void timer9_int();
+
 
 /* hardware watchdog interface */
 extern void sys_ctrl_independent_watchdog_init();

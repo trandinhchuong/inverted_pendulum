@@ -12,6 +12,7 @@
 #endif
 
 #include <PID_v1.h>
+#include "task_encoder.h"
 
 /*Constructor (...)*********************************************************
  *    The parameters specified here are those for for which we can't set up
@@ -33,7 +34,9 @@ PID::PID(double* Input, double* Output, double* Setpoint,
     PID::SetControllerDirection(ControllerDirection);
     PID::SetTunings(Kp, Ki, Kd, POn);
 
-    lastTime = millis()-SampleTime;
+	lastTime = microus()-SampleTime;
+	microus();
+
 }
 
 /*Constructor (...)*********************************************************
@@ -55,10 +58,10 @@ PID::PID(double* Input, double* Output, double* Setpoint,
  *   pid Output needs to be computed.  returns true when the output is computed,
  *   false when nothing has been done.
  **********************************************************************************/
-bool PID::laymau()
+bool PID::Compute()
 {
    if(!inAuto) return false;
-   unsigned long now = millis();
+   unsigned long now = microus();
    unsigned long timeChange = (now - lastTime);
    if(timeChange>=SampleTime)
    {

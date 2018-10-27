@@ -31,7 +31,6 @@
 #include "timer.h"
 
 #include "app.h"
-#include "task_encoder.h"
 
 /*****************************************************************************/
 /* linker variable                                                           */
@@ -66,7 +65,6 @@ void exti_line15_irq();
 void timer6_irq();
 void timer4_irq();
 void timer7_irq();
-void timer9_irq();
 void usb_lp_irq();
 
 /* cortex-M processor fault exceptions */
@@ -140,7 +138,7 @@ void (* const isr_vector[])() = {
 		default_handler,						//	COMP through EXTI Line
 		default_handler,						//	EXTI Line 9..5
 		default_handler,						//	LCD
-		timer9_irq,								//	TIM9
+		default_handler,						//	TIM9
 		default_handler,						//	TIM10
 		default_handler,						//	TIM11
 		default_handler,						//	TIM2
@@ -152,13 +150,13 @@ void (* const isr_vector[])() = {
 		default_handler,						//	I2C2 Error
 		default_handler,						//	SPI1
 		default_handler,						//	SPI2
-		shell_handler,							//	USART1
+        shell_handler,							//	USART1
 		default_handler,						//	USART2
 		default_handler,						//	USART3
 		default_handler,						//	EXTI Line 15..10
 		default_handler,						//	RTC Alarm through EXTI Line
 		sys_irq_usb_recv,						//	USB FS Wakeup from suspend
-		default_handler,						//	TIM6
+		timer6_irq,								//	TIM6
 		timer7_irq,								//	TIM7
 		};
 
@@ -385,7 +383,7 @@ void timer6_irq() {
 	task_entry_interrupt();
 
 	if (TIM_GetITStatus(TIM6, TIM_IT_Update) != RESET) {
-		sys_irq_timer_50us();
+		sys_irq_pid();
 		TIM_ClearITPendingBit(TIM6, TIM_IT_Update);
 	}
 
@@ -403,18 +401,25 @@ void timer4_irq() {
 	task_entry_interrupt();
 
 	if (TIM_GetITStatus(TIM4, TIM_IT_CC4) != RESET) {
-
+		sys_irq_timer_hs1101();
 		TIM_ClearITPendingBit(TIM4, TIM_IT_CC4);
 	}
 
 	task_exit_interrupt();
 }
-void timer9_irq(){
+//void timer9_irq() {
+//	if (TIM_GetITStatus(TIM7, TIM_IT_Update) != RESET) {
+//		sys_irq_pid();
+//		TIM_ClearITPendingBit(TIM7, TIM_IT_Update);
+//	}
+//}
+
+void rtos_irq() {
 	task_entry_interrupt();
 
-	if (TIM_GetITStatus(TIM9, TIM_IT_Update) != RESET) {
-		app_task_pid();
-		TIM_ClearITPendingBit(TIM9, TIM_IT_Update);
+	if (TIM_GetITStatus(TIM9, TIM_IT_CC4) != RESET) {
+		sys_irq_pid();
+		TIM_ClearITPendingBit(TIM9, TIM_IT_CC4);
 	}
 
 	task_exit_interrupt();

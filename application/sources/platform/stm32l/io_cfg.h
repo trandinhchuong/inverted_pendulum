@@ -300,11 +300,12 @@ extern int  ssd1306_data_digital_read();
 /******************************************************************************
 * Encoder function
 *******************************************************************************/
- void TIM3_Encoder_Config();
-extern void TIM2_Encoder_Config();
-extern void timer9_int();
-extern void TIM11_PWM(uint16_t CCR1Val );
+extern void TIM3_Encoder_Config();
+extern void TIM2_Encoder_Config();\
+extern void PWM_int();
+extern void TIM11_PWM(__IO int16_t CCR1Val );
 extern void Dir_int() ;
+
 /******************************************************************************
 * eeprom function
 *******************************************************************************/

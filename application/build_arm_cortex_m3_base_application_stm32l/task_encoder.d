@@ -99,4 +99,5 @@ build_arm_cortex_m3_base_application_stm32l/task_encoder.o: \
  sources/sys/sys_dbg.h sources/ak/task.h sources/sys/sys_svc.h \
  sources/common/xprintf.h sources/app/app.h sources/app/app_dbg.h \
  sources/app/task_list.h sources/app/task_life.h sources/driver/led/led.h \
- sources/app/task_encoder.h sources/driver/PID/PID_v1.h
+ sources/app/task_encoder.h sources/driver/eeprom/eeprom.h \
+ sources/driver/PID/PID_v1.h
