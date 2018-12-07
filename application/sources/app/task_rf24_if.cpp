@@ -18,7 +18,7 @@
 #include "fifo.h"
 
 #include "eeprom.h"
-#include "exor.h"
+
 
 #include "hal_nrf.h"
 #include "nrf_data.h"

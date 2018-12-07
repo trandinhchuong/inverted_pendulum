@@ -67,7 +67,7 @@ build_arm_cortex_m3_base_application_stm32l/sys_cfg.o: \
  sources/app/app_if.h sources/app/app_eeprom.h sources/app/app_data.h \
  sources/platform/stm32l/system.h sources/sys/sys_io.h \
  sources/platform/stm32l/io_cfg.h \
- sources/platform/stm32l/stm32l1xx_conf.h sources/driver/rtc/rtc.h \
+ sources/platform/stm32l/stm32l1xx_conf.h \
  sources/platform/stm32l/usb/inc/hw_config.h \
  sources/platform/stm32l/usb/inc/platform_config.h \
  sources/platform/stm32l/Libraries/STM32_USB-FS-Device_Driver/inc/usb_type.h \

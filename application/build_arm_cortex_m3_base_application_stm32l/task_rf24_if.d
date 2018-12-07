@@ -36,7 +36,6 @@ build_arm_cortex_m3_base_application_stm32l/task_rf24_if.o: \
  /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/string.h \
  /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/sys/string.h \
  sources/common/fifo.h sources/driver/eeprom/eeprom.h \
- sources/driver/exor/exor.h \
  sources/networks/rf_protocols/rf24/hal/hal_nrf.h \
  sources/networks/rf_protocols/rf24/hal/hal_nrf_reg.h \
  sources/networks/rf_protocols/rf24/hal/hal_nrf_hw.h \
@@ -72,7 +71,7 @@ build_arm_cortex_m3_base_application_stm32l/task_rf24_if.o: \
  sources/platform/stm32l/Libraries/STM32L1xx_StdPeriph_Driver/inc/misc.h \
  sources/platform/stm32l/stm32l1xx_conf.h \
  sources/platform/stm32l/Libraries/CMSIS/Device/ST/STM32L1xx/Include/system_stm32l1xx.h \
- sources/driver/rtc/rtc.h sources/platform/stm32l/usb/inc/hw_config.h \
+ sources/platform/stm32l/usb/inc/hw_config.h \
  sources/platform/stm32l/usb/inc/platform_config.h \
  sources/platform/stm32l/Libraries/STM32_USB-FS-Device_Driver/inc/usb_type.h \
  sources/platform/stm32l/usb/inc/usb_conf.h \

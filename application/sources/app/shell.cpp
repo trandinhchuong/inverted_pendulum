@@ -40,15 +40,15 @@
 #include "task_life.h"
 #include "task_encoder.h"
 
-#include "rtc.h"
+
 #include "led.h"
 #include "eeprom.h"
 #include "Adafruit_ssd1306syp.h"
-#include "EmonLib.h"
-#include "DS1302.h"
+
+
 #include "flash.h"
-#include "hs1101.h"
-#include "exor.h"
+
+
 
 /*****************************************************************************/
 /*  local declare

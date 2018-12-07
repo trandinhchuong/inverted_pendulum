@@ -1,8 +1,6 @@
-task_encoder.cpp:65:10:uint16_t microus()	0	static
-task_encoder.cpp:78:6:void flashRead(float*, uint32_t)	0	static
-task_encoder.cpp:87:6:void flashWrite(float*, uint32_t)	0	static
-task_encoder.cpp:189:6:void PWM(int16_t)	16	static
-task_encoder.cpp:96:6:void canbang()	32	static
-task_encoder.cpp:206:6:void display()	16	static
-task_encoder.cpp:215:6:void display_encoder()	16	static
-task_encoder.cpp:301:6:void task_inverterPendulum(ak_msg_t*)	32	static
+task_encoder.cpp:38:10:uint16_t microus()	0	static
+task_encoder.cpp:103:6:void PWM(int16_t)	16	static
+task_encoder.cpp:126:6:void display()	24	static
+task_encoder.cpp:46:6:void canbang()	16	static
+task_encoder.cpp:168:6:void display_encoder()	16	static
+task_encoder.cpp:254:6:void task_inverterPendulum(ak_msg_t*)	32	static

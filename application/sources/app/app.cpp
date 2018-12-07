@@ -121,7 +121,7 @@ int main_app() {
     Dir_int() ;
 	//timer9_int();
 	timer_50us_init();
-	timer_50us_enable();
+	//timer_50us_enable();
     GPIO_ResetBits(GPIOB, GPIO_Pin_8);
 
     task_create(app_task_table);
@@ -143,7 +143,7 @@ int main_app() {
 	button_enable(&btn_down);
 
 
-	task_post_pure_msg(AC_TASK_DISPLAY_ID,AC_DISPLAY_INITIAL);
+	//task_post_pure_msg(AC_TASK_DISPLAY_ID,AC_DISPLAY_INITIAL);
 	//task_post_pure_msg(AC_TASK_INVERTERPENDULUM,AC_INVERTERPENDULUM_FLASH_READ);
 
 	task_post_pure_msg(AC_TASK_INVERTERPENDULUM,AC_INVERTERPENDULUM);

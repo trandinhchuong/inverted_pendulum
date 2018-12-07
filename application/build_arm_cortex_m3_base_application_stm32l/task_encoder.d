@@ -53,7 +53,7 @@ build_arm_cortex_m3_base_application_stm32l/task_encoder.o: \
  sources/platform/stm32l/Libraries/STM32L1xx_StdPeriph_Driver/inc/misc.h \
  sources/platform/stm32l/stm32l1xx_conf.h \
  sources/platform/stm32l/Libraries/CMSIS/Device/ST/STM32L1xx/Include/system_stm32l1xx.h \
- sources/driver/rtc/rtc.h sources/platform/stm32l/usb/inc/hw_config.h \
+ sources/platform/stm32l/usb/inc/hw_config.h \
  sources/platform/stm32l/usb/inc/platform_config.h \
  sources/platform/stm32l/Libraries/STM32_USB-FS-Device_Driver/inc/usb_type.h \
  /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/lib/gcc/arm-none-eabi/5.4.1/include/stdbool.h \
@@ -97,7 +97,7 @@ build_arm_cortex_m3_base_application_stm32l/task_encoder.o: \
  sources/platform/stm32l/arduino/cores/stm32/pgmspace.h \
  /home/chuong/workspace/tools/gcc-arm-none-eabi-5_4-2016q3/arm-none-eabi/include/inttypes.h \
  sources/sys/sys_dbg.h sources/ak/task.h sources/sys/sys_svc.h \
- sources/common/xprintf.h sources/app/app.h sources/app/app_dbg.h \
- sources/app/task_list.h sources/app/task_life.h sources/driver/led/led.h \
- sources/app/task_encoder.h sources/driver/eeprom/eeprom.h \
- sources/driver/PID/PID_v1.h
+ sources/common/xprintf.h sources/driver/flash/flash.h sources/app/app.h \
+ sources/app/app_dbg.h sources/app/task_list.h sources/app/task_life.h \
+ sources/driver/led/led.h sources/app/task_encoder.h \
+ sources/driver/eeprom/eeprom.h

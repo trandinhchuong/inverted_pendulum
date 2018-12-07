@@ -1004,7 +1004,7 @@ void Dir_int() {
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
 }
 void PWM_int()
@@ -1143,7 +1143,7 @@ void TIM2_Encoder_Config(void)
     TIM_ARRPreloadConfig(TIM2, ENABLE);
 
 
-    TIM_EncoderInterfaceConfig(TIM2, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
+	TIM_EncoderInterfaceConfig(TIM2, TIM_EncoderMode_TI12, TIM_ICPolarity_Rising, TIM_ICPolarity_Rising);
     TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
 
     //NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);

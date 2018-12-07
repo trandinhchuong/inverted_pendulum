@@ -3,6 +3,12 @@
 
 #include "led.h"
 
+
+Output=200;
+else if(s>1000)
+Output=-200;
+
+
 #define start 1
 #define stop 0
 

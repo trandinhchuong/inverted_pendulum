@@ -70,7 +70,7 @@ build_arm_cortex_m3_base_application_stm32l/shell.o: \
  sources/platform/stm32l/Libraries/STM32L1xx_StdPeriph_Driver/inc/misc.h \
  sources/platform/stm32l/stm32l1xx_conf.h \
  sources/platform/stm32l/Libraries/CMSIS/Device/ST/STM32L1xx/Include/system_stm32l1xx.h \
- sources/driver/rtc/rtc.h sources/platform/stm32l/usb/inc/hw_config.h \
+ sources/platform/stm32l/usb/inc/hw_config.h \
  sources/platform/stm32l/usb/inc/platform_config.h \
  sources/platform/stm32l/Libraries/STM32_USB-FS-Device_Driver/inc/usb_type.h \
  sources/platform/stm32l/usb/inc/usb_conf.h \
@@ -107,9 +107,7 @@ build_arm_cortex_m3_base_application_stm32l/shell.o: \
  sources/app/task_list.h sources/app/task_list_if.h sources/app/task_if.h \
  sources/app/task_life.h sources/driver/led/led.h \
  sources/app/task_encoder.h sources/driver/eeprom/eeprom.h \
- sources/driver/EmonLib/EmonLib.h sources/driver/ds1302/DS1302.h \
- sources/driver/flash/flash.h sources/driver/hs1101/hs1101.h \
- sources/driver/exor/exor.h \
+ sources/driver/flash/flash.h \
  sources/networks/rf_protocols/rf24/hal/hal_nrf.h \
  sources/networks/rf_protocols/rf24/hal/hal_nrf_reg.h \
  sources/networks/rf_protocols/rf24/hal/hal_nrf_hw.h
