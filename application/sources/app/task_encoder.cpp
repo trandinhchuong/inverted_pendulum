@@ -25,20 +25,25 @@ __IO int16_t Encoder800=0,Encoder800_val=0;
 float s=0.0, s1 = 0.0,Pos = 0.0, theta = 0.0, theta1 = 0.0;\
 float k1, k2, k3, k4;
 
-float Speed=0.0;
+float setpoint=20;
 char st[6];
 __IO int16_t error =0;
 __IO int16_t Output=0;
-
+__IO int16_t  upp=9000;
+__IO int16_t  downn=-9000;
 /*****************Set_value**************/
 int Set=0;
 int run=0;
 /*****************timer10us*****************/
 uint16_t micro_us=0;
+uint16_t timePrint=100;
+uint16_t timeCount=0;
 uint16_t microus()
 {
 	micro_us= micro_us+1;
+	timeCount=timeCount+1;
 	return  micro_us;
+
 }
 
 void PWM(__IO int16_t val);
@@ -46,72 +51,79 @@ void PWM(__IO int16_t val);
 void canbang()
 {
 	Encoder=TIM_GetCounter(TIM3);//200prr
-	s=(Encoder*0.3925);
-
+	s=(Encoder*0.00479);//0.047909
+	s=s;
 	Encoder800=TIM_GetCounter(TIM2);
-	Pos=(Encoder800*0.09);
+	Pos=(Encoder800*0.157);//0.00157
 
-	theta = Pos;
+	theta =Pos;
 	if(run==0)
 	{
 		Output=0;
 		PWM((__IO int16_t )Output);
-		k1 = 500;
-		k2 = 50;
-		k3 = 900;
-		k4 = 5;
-		display();
-
-	}
+		//21.5023 13.5548 . 59.5012 9.7365
+		k1 =33.5242;//5.5023;//33.5242;//82.3814;//37.0716//
+		k2 =17.5696;//1.5548; //16.5696;//16.5696;//54.4133;//-24.4860//
+		k3 =126.6244;//126.6244;//-56.9810//800
+		k4 =30.9240;//28.9240;//-13.0158//50
+		timeCount=0;
+	}//if
 	else
 	{
 //		Output = pOut + dOut;  100 0.5 500 5
 //		Output = (int16_t) (-(k1*s + k2*100*(s-s1) + k3*theta +k4*100*(theta-theta1)));
 
-//		Output = (int16_t) (-(k1*s + k2*100*(s-s1) + k3*theta +k4*100*(theta-theta1)));
-//		if(Output>1023)Output=1023;
-//		if(Output<=(-1023))Output=-1023;
 
+		Output = (int16_t) (- ( -(k1*s + k2*100*(s-s1) ) + k3*theta +k4*100*(theta-theta1)) );
 
-//		if((s<1000) && (s<=0))
-//		Output= 200;
-//		else if(s>1000)
-		Output=-400;
-
+		if(Output>1023)Output=1023;
+		if(Output<=(-1023))Output=-1023;
 
 		PWM((__IO int16_t )Output);
 
 		s1 = s;
 		theta1 = theta;
-	}
+		if((theta-theta1)>(setpoint*5))
+			run=0;
+		else if(((theta-theta1)*-1)> (setpoint*5))
+			run=0;
+	}//else
+if(micro_us >=(uint32_t)1)
+{
+if(timeCount<40000)
+{
 
 	LOGIN_PRINT("\n");
-	LOGIN_PRINT("s: %d\t",(int)(s*100));
-//	LOGIN_PRINT("theta: %d\t",(int)(theta*100));
-//	LOGIN_PRINT("encoder800: %d\t",(int)Encoder800);
+	//LOGIN_PRINT("s: %d\t",(int)(s*100));
 
-	//	LOGIN_PRINT("POut:%d\t",(int)pOut);
-	//	LOGIN_PRINT("dOut:%d\t",(int)dOut);
-	//	LOGIN_PRINT("iOut:%d\t",(int)iOut);
-	LOGIN_PRINT("output: %d\t",(int)Output);
-	//LOGIN_PRINT("microus:%d\t",micro_us);
+	LOGIN_PRINT("theta: %d\t",(int)(theta*100));
+	LOGIN_PRINT("output: %d\t",(int)(Output));
+	LOGIN_PRINT("dOut: %d\t",(int)upp);
+	LOGIN_PRINT("iOut: %d\t",(int)downn);
+
+//	LOGIN_PRINT("encoder800: %d\t",(uint16_t)Encoder800);
+//	LOGIN_PRINT("POut:%d\t",(int)pOut);
+	//LOGIN_PRINT("microus:%d\t",(uint16_t)micro_us);
 
 	micro_us=0;
+}
+}//if
 	task_post_pure_msg(AC_TASK_INVERTERPENDULUM,AC_INVERTERPENDULUM);
 }
 
-void PWM(__IO int16_t val)
+void PWM( int16_t val)
 {
 	if(val < 0){
-	//	val=100+abs(val);//105
-	//	if(val>1023)val=1023;
+		val=val*(-1);//105
+		val=120+val;
+		if(val>1023)val=1023;
 		TIM11_PWM((__IO int16_t)val);
 		GPIO_ResetBits(GPIOB, GPIO_Pin_8);
 	}
 	else if(val > 1) {
-	//	val=130 + val;//80
-	//	if(val>1023)val=1023;
-		TIM11_PWM((uint8_t)val);
+		val=120 + val;//80
+		if(val>1023)val=1023;
+		TIM11_PWM((__IO int16_t)val);
 		GPIO_SetBits(GPIOB, GPIO_Pin_8);
 	}
 	else

@@ -2,7 +2,6 @@
 #define __TASK_ENCODER__
 
 #include "led.h"
-
 #define start 1
 #define stop 0
 

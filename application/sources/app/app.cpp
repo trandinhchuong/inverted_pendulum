@@ -121,7 +121,7 @@ int main_app() {
     Dir_int() ;
 	//timer9_int();
 	timer_50us_init();
-	//timer_50us_enable();
+	timer_50us_enable();
     GPIO_ResetBits(GPIOB, GPIO_Pin_8);
 
     task_create(app_task_table);

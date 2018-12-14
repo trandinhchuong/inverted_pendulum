@@ -319,7 +319,7 @@ timer_50us.TIM_Period = 1592;
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
 	timer_50us.TIM_Period = 320;
-	timer_50us.TIM_Prescaler = 0;
+	timer_50us.TIM_Prescaler = 100;
 	timer_50us.TIM_ClockDivision = 0;
 	timer_50us.TIM_CounterMode = TIM_CounterMode_Down;
 	TIM_TimeBaseInit(TIM6, &timer_50us);
@@ -1040,8 +1040,8 @@ void PWM_int()
 		---------------------------------------------------------------------------- */
 		TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 		/* Time base configuration */
-		TIM_TimeBaseStructure.TIM_Period = 1024;
-		TIM_TimeBaseStructure.TIM_Prescaler = 10;
+		TIM_TimeBaseStructure.TIM_Period = 1024; //1024
+		TIM_TimeBaseStructure.TIM_Prescaler =10;//10
 		TIM_TimeBaseStructure.TIM_ClockDivision = 0;
 		TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
@@ -1054,6 +1054,8 @@ void PWM_int()
 void TIM11_PWM( __IO int16_t CCR1Val )
 {
 //	LOGIN_PRINT("CCR1Val: %d\n",(int)CCR1Val);
+
+
 	 /*---------------------- System Clocks Configuration ------------------------*/
 	 TIM_OCInitTypeDef  TIM_OCInitStructure;
 	 /* PWM1 Mode configuration: Channel1 */
